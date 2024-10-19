@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنتجات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: black;
+        }
+
+        .car-select {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .car-option {
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .car-option img {
+            width: 100%;
+            border-radius: 5px;
+            max-height: 150px;
+            object-fit: cover;
+        }
+
+        .car-option:hover {
+            border-color: black;
+        }
+
+        .car-option.selected {
+            border-color: black;
+            background-color: #f0fff0;
+        }
+        .footer {
+            padding: 20px; /* Add some padding to the footer */
+            border-top: 1px solid #F2F2F2; /* Use the same light gray color for the border */
+        }
+
+        .footer p {
+            font-size: 14px; /* Reduce font size for better readability */
+            color: #666; /* Medium gray font color for better contrast */
+            text-align: center;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>اختر سيارتك</h1>
+
+        <!-- Navigation Bar -->
+        <nav>
+            <a href="#personal-info">المعلومات الشخصيه</a>
+            <a href="#address">العنوان</a>
+            <a href="#car-choice">السياره</a>
+            <a href="#payment">طريقة الدفع</a>
+        </nav>
+
+        <!-- Form -->
+        <form>
+            <!-- Personal Information Section -->
+            <div id="personal-info" class="section">
+                <h2>المعلومات الشخصيه</h2>
+                <label for="name">الاسم</label>
+                <input style="text-align: right; width: 98%;" type="text" id="name" name="name" placeholder="ادخل اسمك الكامل">
+
+                <label for="email">الايميل</label>
+                <input style="text-align: right; width: 98%;" type="email" id="email" name="email" placeholder="ادخل ايميلك">
+            </div>
+
+            <!-- Address Section -->
+            <div id="address" class="section">
+                <h2>العنوان</h2>
+                <label for="street">الشارع</label>
+                <input style="text-align: right; width: 98%;" type="text" id="street" name="street" placeholder="ادخل الشارع">
+
+                <label for="city">المدينة</label>
+                <input style="text-align: right; width: 98%;" type="text" id="city" name="city" placeholder="ادخل المدينة">
+
+                <label for="zip">الرمز البريدي</label>
+                <input style="text-align: right; width: 98%;" type="text" id="zip" name="zip" placeholder="ادخل الرمز البريدي">
+            </div>
+
+            <!-- Car Choice Section -->
+            <div id="car-choice" class="section">
+                <h2>اختر سيارتك</h2>
+                <div class="car-select">
+                    <!-- Car Option 1 -->
+                    <div class="car-option" data-car="Mercedes-Benz S-Class">
+                        <img src="S-class.png" alt="Mercedes-Benz S-Class">
+                        <p>Mercedes-Benz S-Class</p>
+                    </div>
+
+                    <!-- Car Option 2 -->
+                    <div class="car-option" data-car="Mercedes-Benz G-Class">
+                        <img src="G-class.png" alt="Mercedes-Benz G-Class">
+                        <p>Mercedes-Benz G-Class</p>
+                    </div>
+
+                    <!-- Car Option 3 -->
+                    <div class="car-option" data-car="Mercedes-Benz E-Class">
+                        <img src="E-class.png" alt="Mercedes-Benz E-Class">
+                        <p>Mercedes-Benz E-Class</p>
+                    </div>
+                </div>
+                <input type="hidden" id="car-choice-input" name="car-choice">
+            </div>
+
+            <!-- Payment Method Section -->
+            <div id="payment" class="section">
+                <h2>طريقة الدفع</h2>
+                <label  for="payment-method">اختر طريقة الدفع</label>
+                <select id="payment-method" name="payment-method">
+                    <option style="text-align: right;" value="credit-card">البطاقة الائتمانية</option>
+                    <option style="text-align: right;" value="paypal">باي بال</option>
+                    <option style="text-align: right;" value="bank-transfer">تحويل بنكي</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="section">
+                <button  type="submit" class="button">تأكيد</button>
+            </div>
+        </form>
+        <br>
+        <footer class="footer">
+            <p>جميع الحقوق محفوظة © 2023 مرسيدس بنز | اتصل بنا: info@mercedesbenz.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // Handle car selection
+        const carOptions = document.querySelectorAll('.car-option');
+        const carChoiceInput = document.getElementById('car-choice-input');
+
+        carOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                carOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                carChoiceInput.value = option.getAttribute('data-car');
+            });
+        });
+    </script>
+</body>
+</html>
